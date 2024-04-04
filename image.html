@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Search App</title>
+  <link rel="stylesheet" href="style.css">
+  
+
+</head>
+<style>
+
+body {
+  background-color: dark;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+#search-input {
+  width: 60%;
+  max-width: 400px;
+  padding: 10px 20px;
+  border: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  font-size: 18px;
+  color: #333;
+}
+
+#search-button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  font-size: 18px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+#search-button:hover {
+  background-color: #3e8e41;
+}
+
+.search-results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.search-result {
+  margin-bottom: 60px;
+  width: 30%;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.search-result:hover img {
+  transform: scale(1.05);
+}
+
+.search-result img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+.search-result a {
+  padding: 10px;
+  display: block;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.search-result:hover a {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+#show-more-button {
+  background-color: #008cba;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  display: none;
+  margin: 20px auto;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+#show-more-button:hover {
+  background-color: #0077b5;
+}
+
+@media screen and (max-width: 768px) {
+  .search-result {
+    width: 45%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .search-result {
+    width: 100%;
+  }
+
+  form {
+    flex-direction: column;
+  }
+
+  #search-input {
+    margin-bottom: 20px;
+    width: 85%;
+  }
+}
+
+
+/* search */
+/* CSS styles for search results */
+.search-result {
+  margin-bottom: 30px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: #fff;
+}
+.image-details{
+  padding: 10px;
+}
+
+.search-result img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.search-result .details {
+  padding: 15px;
+}
+
+.search-result .details h2 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.search-result .details p {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.search-result .details a {
+  display: inline-block;
+  background-color: #4caf50;
+  color: #fff;
+  padding: 8px 15px;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+
+.search-result .details a:hover {
+  background-color: #388e3c;
+}
+
+/* Show more button */
+#show-more-button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#show-more-button:hover {
+  background-color: #388e3c;
+}
+
+ 
+
+
+
+
+  
+
+</style>
+<body>
+  <nav>
+    <ul class="sidebar">
+      <li onclick="hideSidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg></a></li> 
+      <li><a href="image.html">image</a></li>
+      <li><a href="video.html">video</a></li>
+      <li><a href="copyright.html">copyright</a></li>
+    </ul>
+    <ul>
+      <li><a href="image.html">logo</a></li>
+      <li class="hideOnMobile"><a href="image.html">image</a></li>
+      <li class="hideOnMobile"><a href="video.html">video</a></li>
+      <li class="hideOnMobile"><a href="copyright.html">copyright</a></li>
+      <li class="menu-button" onclick="showSidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg></a></li> 
+    </ul> 
+  </nav>
+
+  <h1>Image Search App</h1>
+  <form id="search-form">
+    <input type="text" id="search-input" placeholder="Search for images...">
+    <button type="submit" id="search-button">Search</button>
+  </form>
+  <div class="search-results"></div>
+  <button id="show-more-button">Show more</button>
+
+  <script src="script.js"></script>
+
+  <script>
+    function showSidebar(){
+      const sidebar = document.querySelector('.sidebar')
+      sidebar.style.display = 'flex'
+    }
+    function hideSidebar(){
+      const sidebar = document.querySelector('.sidebar')
+      sidebar.style.display = 'none'
+    }
+  </script>
+</body>
+
+
+
+
+   
+   
+  
+
+
+</body>
+</html>
